@@ -30,8 +30,8 @@ from sound_recorder import record
 from speak import speak
 
 while 1:
-    record()
-    cmd = recognize()
+    #record()
+    cmd = 'hello mrinmoy'#recognize()
     if(cmd != -1):
         speak(cmd)
     print(cmd)
