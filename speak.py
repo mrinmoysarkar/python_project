@@ -3,4 +3,4 @@ def speak(data):
     import os
     tts = gTTS(text=data, lang='en')
     tts.save("hello.mp3")
-    os.system("mpg321 hello.mp3")
+    os.system("cvlc --play-and-exit hello.mp3")

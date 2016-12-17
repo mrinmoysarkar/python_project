@@ -20,20 +20,27 @@ asound = cdll.LoadLibrary('libasound.so')
 # Set error handler
 asound.snd_lib_error_set_handler(c_error_handler)
 
-
-
-
-
-
 from recognize import recognize
 from sound_recorder import record
 from speak import speak
+from distance import get_distance
+from led import led
+from execute_cmd import execute_cmd
+import time
 
-while 1:
-    #record()
-    cmd = 'hello mrinmoy'#recognize()
+
+run = True
+while run:
+    #run = False
+    #dist = get_distance()
+    led(True)
+    record()
+    led(False)
+    #time.sleep(10)
+    cmd  =  recognize()
     if(cmd != -1):
-        speak(cmd)
-    print(cmd)
+        #speak(cmd)
+        execute_cmd(cmd)
+        print(cmd)
     if cmd == "stop":
         break
